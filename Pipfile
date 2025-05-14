@@ -19,10 +19,12 @@ tqdm = "*"
 isort = "*"
 langchainhub = "*"
 firecrawl-py = "*"
-langchain-community = "*"
 langsmith = "*"
-pinecone = "*"
 pillow = "*"
+langchain-openai = "*"
+langchain-community = "*"
+pinecone = "*"
+langchain-pinecone = "*"
 
 [dev-packages]
 
