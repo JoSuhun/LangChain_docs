@@ -1,9 +1,10 @@
 import streamlit as st
 from streamlit_chat import message
-from backend.core import run_agent_with_sources, create_sources_string
+from backend.core import run_agent, create_sources_string
 
 st.header("Langchain-Doc Helper Bot")
 
+# Streamlit에서 입력받는 prompt
 prompt = st.text_input("Prompt", placeholder="Enter your prompt here . . .")
 
 if "user_prompt_history" not in st.session_state:
@@ -13,7 +14,8 @@ if "chat_answers_history" not in st.session_state:
 
 if prompt:
     with st.spinner("Generating response .."):
-        res = run_agent_with_sources(prompt)
+        # core.py run_agent 실행
+        res = run_agent(prompt)
         formatted_response = f"{res['result']}\n\n" + create_sources_string(set(res["sources"]))
 
         st.session_state["user_prompt_history"].append(prompt)
